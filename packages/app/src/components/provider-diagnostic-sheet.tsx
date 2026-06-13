@@ -641,19 +641,23 @@ export function ProviderDiagnosticSheet({
           theme={theme}
         />
       </AdaptiveModalSheet>
-      <AddCustomModelSubSheet
-        provider={provider}
-        serverId={serverId}
-        visible={addSheetOpen}
-        onClose={handleCloseAddSheet}
-        refresh={refresh}
-      />
-      <DiagnosticSubSheet
-        provider={provider}
-        serverId={serverId}
-        visible={diagSheetOpen}
-        onClose={handleCloseDiagSheet}
-      />
+      {addSheetOpen && (
+        <AddCustomModelSubSheet
+          provider={provider}
+          serverId={serverId}
+          visible={addSheetOpen}
+          onClose={handleCloseAddSheet}
+          refresh={refresh}
+        />
+      )}
+      {diagSheetOpen && (
+        <DiagnosticSubSheet
+          provider={provider}
+          serverId={serverId}
+          visible={diagSheetOpen}
+          onClose={handleCloseDiagSheet}
+        />
+      )}
     </>
   );
 }
